@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upper Sibul Elementary School</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
+    header { background: #007acc; color: white; padding: 20px; text-align: center; }
+    nav { background: #005fa3; display: flex; justify-content: center; padding: 10px; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    main { padding: 20px; }
+    section { margin-bottom: 40px; }
+    .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .search-container { margin-bottom: 20px; }
+    input[type="text"] { width: 100%; padding: 10px; font-size: 1rem; }
+    button { padding: 10px 15px; margin-top: 10px; }
+    .results { margin-top: 20px; }
+    footer { background: #007acc; color: white; text-align: center; padding: 10px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Upper Sibul Elementary School</h1>
+    <p>2790 Upper Sibul E.B.B. Elementary School, Olongapo City</p>
+  </header>
+
+  <nav>
+    <a href="#about">About Us</a>
+    <a href="#announcements">Announcements</a>
+    <a href="#activities">Teacher Activities</a>
+    <a href="#forms">Staff Forms</a>
+  </nav>
+
+  <main>
+    <section id="about" class="card">
+      <h2>About Us</h2>
+      <p><strong>School Head:</strong> Princess Ruhama P. Bucasas</p>
+      <p><strong>Second-in-Command:</strong> Manuel M. Gabriel</p>
+      <p><strong>Admin Staff:</strong> Adrian Floriano</p>
+      <p><strong>Admin Officer:</strong> Liberty Y. Dungog</p>
+      <h3>Mission</h3>
+      <p>To provide quality basic education that is accessible to all and lays the foundation of lifelong learning and service for the common good.</p>
+      <h3>Vision</h3>
+      <p>A learner-centered public institution continuously improving to better serve its stakeholders.</p>
+    </section>
+
+    <section id="announcements" class="card">
+      <h2>Announcements</h2>
+      <ul>
+        <li>📅 July 28, 2025 - Brigada Eskwela kick-off program launched successfully!</li>
+        <li>📅 July 15, 2025 - Research and Values Education Week announced (August 2025)</li>
+      </ul>
+    </section>
+
+    <section id="activities" class="card">
+      <h2>Search Teacher Activity Form</h2>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Enter teacher name...">
+        <button onclick="searchForm()">Search</button>
+        <button onclick="clearSearch()">Delete Search History</button>
+      </div>
+      <div class="results" id="results"></div>
+    </section>
+
+    <section id="forms" class="card">
+      <h2>Private Forms for Staff (Google Forms)</h2>
+      <ul>
+        <li><a href="#">Form: Bautista, Joy Laver M.</a></li>
+        <li><a href="#">Form: Borromeo, Antonette Joyce E.</a></li>
+        <li><a href="#">Form: Bucsit, Neil Bryan M.</a></li>
+        <li><a href="#">Form: Cabasig, Cyndel A.</a></li>
+        <li><a href="#">Form: Manalansan, Manilyn B.</a></li>
+        <li><a href="#">Form: Manglicmot, Michael C.</a></li>
+        <li><a href="#">Form: Pagado, Christine O.</a></li>
+        <li><a href="#">Form: Peralta, Rodjeane E.</a></li>
+        <li><a href="#">Form: Torres, Jeremy A.</a></li>
+        <li><a href="#">Form: Floriano, Adrian (Admin Staff)</a></li>
+        <li><a href="#">Form: Liberty Y. Dungog (Admin Officer)</a></li>
+        <li><a href="#">Form: Princess Ruhama P. Bucasas (School Head)</a></li>
+        <li><a href="#">Form: Manuel M. Gabriel (2nd-in-Command)</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Upper Sibul Elementary School. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const forms = {
+      "bautista": "#",
+      "borromeo": "#",
+      "bucsit": "#",
+      "cabasig": "#",
+      "manalansan": "#",
+      "manglicmot": "#",
+      "pagado": "#",
+      "peralta": "#",
+      "torres": "#",
+      "floriano": "#",
+      "liberty": "#",
+      "princess": "#",
+      "manuel": "#"
+    };
+
+    function searchForm() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const results = document.getElementById('results');
+      results.innerHTML = '';
+      for (const name in forms) {
+        if (name.includes(input)) {
+          results.innerHTML += `<p>🔗 <a href="${forms[name]}" target="_blank">Open form for ${name}</a></p>`;
+        }
+      }
+      if (!results.innerHTML) results.innerHTML = '<p>No matching form found.</p>';
+    }
+
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('results').innerHTML = '';
+    }
+  </script>
+</body>
+</html>
